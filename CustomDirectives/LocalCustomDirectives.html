@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Local Custom Directives</title>
+    <script src="Scripts/vue.js"></script>
+    <link rel="stylesheet"
+          href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <p v-local>{{greeting}}</p>
+        <p>{{example}}</p>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                greeting: 'Hi!',
+                example: 'This is a local Custom Directive example'
+            }
+        },
+        directives: {
+            local(el, binding, vnode, oldVnode) {
+                bind: {
+                    el.style.color = "white"
+                    el.style.backgroundColor = "#00b09d"
+                    el.style.fontSize = "50px"
+                    el.className = "text-center";
+                }
+            }
+        }
+    })
+</script>

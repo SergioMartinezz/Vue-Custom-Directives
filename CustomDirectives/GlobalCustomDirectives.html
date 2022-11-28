@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Global Custom Directives</title>
+    <script src="Scripts/vue.js"></script>
+    <link rel="stylesheet"
+          href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <h3>{{title}}</h3>
+        <form>
+            <label>{{name}}</label><br />
+            <input v-focus /><br />
+            <br />
+            <label>{{password}}</label><br />
+            <input /><br />
+            <br />
+            <button class="btn btn-primary btn-lg">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    Vue.directive('focus', {
+        inserted(el) {
+            el.focus()
+        }
+    });
+
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                title: 'Inicie sesión',
+                name: 'Nombre',
+                password: 'Contraseña'
+            }
+        }
+    })
+</script>
+<style scoped>
+    #app{
+        padding:30px;
+    }
+</style>
